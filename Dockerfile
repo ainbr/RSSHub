@@ -22,6 +22,7 @@ COPY ./package.json /app/
 RUN \
     set -ex && \
     export PUPPETEER_SKIP_DOWNLOAD=true && \
+    corepack prepare pnpm@8 --activate && \
     corepack enable pnpm && \
     pnpm install --prod --frozen-lockfile && \
     pnpm rb
